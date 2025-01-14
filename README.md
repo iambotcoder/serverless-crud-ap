@@ -128,7 +128,7 @@ The API supports the following operations:
     ```json
     {
       "operation": "echo",
-      "payload": {
+        "payload": {
           "somekey1": "somevalue1",
           "somekey2": "somevalue2"
       }
@@ -204,7 +204,7 @@ The API supports the following operations:
       "operation": "read",
       "tableName": "lambda-apigateway",
       "payload": {
-          "Key": {
+            "Key": {
               "id": "123"
           }
       }
@@ -219,8 +219,8 @@ The API supports the following operations:
         "operation": "update",
         "tableName": "lambda-apigateway",
         "payload": {
-            "Key": {
-                "id": "56789ABCD"
+              "Key": {
+                  "id": "56789ABCD"
             },
             "UpdateExpression": "set #num = :val1",
             "ExpressionAttributeValues": {
@@ -244,8 +244,8 @@ The API supports the following operations:
       "operation": "delete",
       "tableName": "lambda-apigateway",
       "payload": {
-          "Key": {
-              "id": "56789ABCD"
+            "Key": {
+                "id": "56789ABCD"
           }
       }
     }
