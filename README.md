@@ -265,3 +265,7 @@ The API supports the following operations:
 ---
 ### ✅ Conclusion
 This guide demonstrates how to integrate AWS Lambda with API Gateway and DynamoDB to perform database operations in a serverless architecture. It provides a scalable and efficient approach to manage CRUD functionalities with minimal infrastructure management.
+
+## 👨‍🏫 Instructor
+
+This project was guided by **Rajdeep Saha**, who provided valuable mentorship throughout the process.
