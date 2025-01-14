@@ -26,7 +26,6 @@ The key components of this project are:
 
 ---
 
-
 ## Prerequisites
 Before you start, ensure you have the following:
 - An AWS account
@@ -36,10 +35,11 @@ Before you start, ensure you have the following:
 ---
 
 ## Architecture Diagram
-Provide a high-level architecture diagram of the project setup.
+Provide a high-level architecture diagram of the project setup.  
 ![Architecture Diagram](https://github.com/user-attachments/assets/f4dffa5b-22d1-4ec9-a004-5958b36215ab)
 
 ---
+
 ### Supported Operations
 The API supports the following operations:
 - **DynamoDB CRUD Operations**:
@@ -47,6 +47,8 @@ The API supports the following operations:
 - **Testing Operations**:
   - `echo` (returns the input as-is)
   - `ping` (returns "pong")
+
+---
 
 ### Steps to Implement
 
@@ -76,7 +78,8 @@ The API supports the following operations:
   4. Save the policy with the name **lambda-apigateway-policy**.
   5. Go to the Roles section in IAM and create a new role.
   6. Attach the **lambda-apigateway-policy** to the role.
-  
+
+---
 
 ### 2. Create Lambda Function
 - **Lambda Function (LambdaFunctionOverHttps):**
@@ -114,9 +117,10 @@ The API supports the following operations:
           return operations[operation](event.get('payload'))
       else:
           raise ValueError('Unrecognized operation "{}"'.format(operation))
-
      ```
   4. Save and deploy the function.
+
+---
 
 ### 3. Test Lambda Function
 - Test the Lambda function using the **echo** operation:
@@ -138,12 +142,16 @@ The API supports the following operations:
     }
     ```
 
+---
+
 ### 4. Create DynamoDB Table
 - **DynamoDB Table (lambda-apigateway):**
   1. Go to the **DynamoDB** console and click on **Create Table**.
   2. Set the table name to `lambda-apigateway`.
   3. Define the **Primary Key**:
      - Partition Key: `id` (String).
+
+---
 
 ### 5. Create API Gateway
 - **API Gateway Setup:**
@@ -157,19 +165,23 @@ The API supports the following operations:
      - Select **Lambda Function** as the integration type.
      - Specify the function name (`LambdaFunctionOverHttps`).
 
+---
+
 ### 6. Deploy API
 - **Deploy the API:**
   1. Go to the **Actions** menu and select **Deploy API**.
   2. Create a new stage: `prod`.
   3. Retrieve the **Invoke URL** for the deployed API.
 
-## Running  the Solution with Postman.
+---
+
+## Running the Solution with Postman.
   1. Open Postman and create a new request with the following configurations:
        - HTTP Method: POST
        - URL: `<API Gateway Invoke URL>/DynamoDBManager`
   2. Test different scenarios using the following payloads:
   
-  - Create Operation
+  - **Create Operation**
     ```json
     {
         "operation": "create",
@@ -183,11 +195,10 @@ The API supports the following operations:
     }
     ```
 
-  - Outcome
+  - Outcome  
     ![Screenshot 2025-01-14 050636](https://github.com/user-attachments/assets/f86899d4-ac95-4d20-b0b6-8cddd11d45b0)
 
-
-  - Read Operation
+  - **Read Operation**
     ```json
     {
       "operation": "read",
@@ -202,7 +213,7 @@ The API supports the following operations:
     ![Screenshot 2025-01-14 050652](https://github.com/user-attachments/assets/fec0ba19-ff73-419f-8312-4200847d40ab)
 
   
-  - Update Operation
+  - **Update Operation**
   ```json
       {
         "operation": "update",
@@ -221,8 +232,8 @@ The API supports the following operations:
             "ReturnValues": "UPDATED_NEW"
         }
     }
+```
 
-  ```
   - outcome
   ![Screenshot 2025-01-14 053219](https://github.com/user-attachments/assets/4f00bee4-95d8-41b2-9833-851ce6114803)
 
