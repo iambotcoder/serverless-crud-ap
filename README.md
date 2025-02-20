@@ -58,22 +58,34 @@ The API supports the following operations:
   2. Create a new policy with the following JSON 📝
   3. Attach the following custom policy JSON to provide necessary permissions:
      ```json
-     {
-       "Version": "2012-10-17",
-       "Statement": [
-         {
-           "Effect": "Allow",
-           "Action": [
-             "dynamodb:PutItem",
-             "dynamodb:GetItem",
-             "dynamodb:UpdateItem",
-             "dynamodb:DeleteItem",
-             "dynamodb:Scan"
-           ],
-           "Resource": "arn:aws:dynamodb:<region>:<account-id>:table/lambda-apigateway"
-         }
-       ]
-     }
+      {
+      "Version": "2012-10-17",
+      "Statement": [
+      {
+        "Sid": "Stmt1428341300017",
+        "Action": [
+          "dynamodb:DeleteItem",
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:Query",
+          "dynamodb:Scan",
+          "dynamodb:UpdateItem"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Sid": "",
+        "Resource": "*",
+        "Action": [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        "Effect": "Allow"
+      }
+      ]
+}
      ```
   4. Save the policy with the name **lambda-apigateway-policy**. 💾
   5. Go to the Roles section in IAM and create a new role. 🎭
