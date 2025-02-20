@@ -85,7 +85,7 @@ The API supports the following operations:
         "Effect": "Allow"
       }
       ]
-}
+      }
      ```
   4. Save the policy with the name **lambda-apigateway-policy**. 💾
   5. Go to the Roles section in IAM and create a new role. 🎭
