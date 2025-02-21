@@ -167,7 +167,7 @@ The API supports the following operations:
 
 ### 5️⃣ Create API Gateway
 - **API Gateway Setup:**
-  1. Navigate to **API Gateway** and create a new API: 🎛️
+  1. Navigate to **API Gateway**, choose REST API and create a new API: 🎛️
      - Name: `DynamoDBOperations`. 💬
   2. Add a new resource:
      - Resource Name: `DynamoDBManager`. 🗂️
